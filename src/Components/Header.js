@@ -9,15 +9,7 @@ const Header = () => {
   const { connect } = useChain("mantrachaintestnet");
   const { mainWallet } = useWallet("keplr-extension"); // Access Keplr wallet connection functions
 
-  const [isStripClosed, setIsStripClosed] = useState(false);
   const [walletConnected, setWalletConnected] = useState(false);
-  const [form, setForm] = useState({});
-
-  useEffect(() => {
-    setIsStripClosed(() => {
-      return false;
-    });
-  }, []);
 
   useEffect(async () => {
     setWalletConnected(true);
