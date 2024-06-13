@@ -1,0 +1,7 @@
+.clickable{cursor:pointer;}
+.notifications-component{top:0;}
+.error-feedback{width:100%;margin-top:0.25rem;font-size:0.875em;color:#dc3545;}
+.toggle-password{cursor:pointer;position:absolute;right:15px;top:40px;}
+.rnc__notification-message span > a {color:#fff;}
+
+

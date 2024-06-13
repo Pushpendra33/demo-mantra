@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="%PUBLIC_URL%/images/favicon.png" />
+  <title>Demo Project's Index Automation Tools</title>
+  <link href="%PUBLIC_URL%/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/customscrollbar.css">
+  <link href="%PUBLIC_URL%/assets/css/style.css" rel="stylesheet">
+  <link href="%PUBLIC_URL%/assets/css/custom.css" rel="stylesheet">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DFEKYWJT3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-5DFEKYWJT3');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3191517847839440');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=3191517847839440&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <script src="%PUBLIC_URL%/assets/js/jquery.min.js"></script>
+  <script src="%PUBLIC_URL%/assets/js/bootstrap.min.js"></script>
+  <script src="%PUBLIC_URL%/assets/js/customscrollbarmin.js"></script>
+  <script src="%PUBLIC_URL%/assets/js/owl.carousel.min.js"></script>
+  <script>
+    (function ($) {
+      $(window).on("load", function () {
+        $("#content-1").mCustomScrollbar({
+          theme: "minimal"
+        });
+      });
+    })(jQuery);
+  </script>
+  <script>
+    $(document).ready(function () {
+      // Banne img Carousel
+      $('#banner-img-carousel').owlCarousel({
+        loop: true,
+        margin: 30,
+        nav: false,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        responsive: {
+          0: {
+            items: 1
+          },
+          1000: {
+            items: 1
+          }
+        }
+      });
+
+      // Sneakpeek Carousel
+      $('#sneakpeek-carousel').owlCarousel({
+        loop: true,
+        margin: 30,
+        nav: false,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        responsive: {
+          0: {
+            items: 1,
+            dots: false,
+          },
+          576: {
+            items: 2
+          },
+          768: {
+            items: 3
+          },
+          1000: {
+            items: 4
+          }
+        }
+      });
+
+      // Team Carousel
+      $('#team-carousel').owlCarousel({
+        loop: true,
+        margin: 30,
+        nav: false,
+        dots: true,
+        stagePadding: 70,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        responsive: {
+          0: {
+            items: 1,
+            stagePadding: 0,
+          },
+          768: {
+            items: 2,
+            stagePadding: 0,
+          },
+          1000: {
+            items: 3
+          },
+          1600: {
+            items: 4
+          }
+        }
+      });
+
+      // Menu Sticky 
+      function stickyHeader() {
+        var sticky = $('.topTeam');
+        scroll = $(window).scrollTop();
+        if (scroll >= 40) {
+          sticky.addClass('headerSticky');
+        }
+        else {
+          sticky.removeClass('headerSticky');
+
+        }
+      }
+      stickyHeader();
+      $(window).scroll(function () {
+        stickyHeader();
+      });
+
+      // Mobile Mode Menu Close 
+      $(".closeSideBar").on('click', function (e) {
+        if ($("#navbarSupportedContent").hasClass("show")) {
+          $("#navbarSupportedContent").removeClass("show")
+        }
+      })
+
+      $('a[href^="#"]').on("click", function (event) {
+        var id = $(this).attr("href");
+        var target = $(id).offset().top - 30;
+        $('html, body').animate({ scrollTop: target }, 500);
+        event.preventDefault();
+      });
+
+      function getTargetTop(elem) {
+        var id = elem.attr("href");
+        var offset = 300;
+        return $(id).offset().top - offset;
+      }
+
+      $(".navbar-nav li a").on("click", function () {
+        $(".navbar-nav li a").removeClass("active");
+        $(this).addClass("active");
+      });
+    });
+  </script>
+</body>
+
+</html>
