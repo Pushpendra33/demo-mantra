@@ -2,8 +2,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { labels, routesList } from "../Common";
-import { useChain, useWallet } from "@cosmos-kit/react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import {
+  commonFields,
+  labels,
+  manageUndefined,
+  metamaskErrorMessages,
+  notificationSetting,
+  notificationType,
+  routesList,
+  showNotification,
+} from "../Common";
+import { GlobalForm, GlobalInput as Input, GlobalModal } from "../Global";
+import { registerSchema } from "../Validations";
 
 const Header = () => {
   const { connect } = useChain("mantrachaintestnet");
@@ -31,6 +43,24 @@ const Header = () => {
     <>
       <header>
         <div className="topTeam">
+          {false && (
+            <div className="stripmint">
+              You need Metamask to interact with this site.{" "}
+              <a
+                href={"https://metamask.io/download/"}
+                target={"_blank"}
+                rel={"noreferrer"}
+              >
+                Click here to install.
+              </a>
+              <a
+                className="closeStrip clickable"
+                onClick={() => setIsStripClosed(true)}
+              >
+                <i className="bi bi-x-lg"></i>
+              </a>
+            </div>
+          )}
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container">
               <a className="navbar-brand" href={routesList.homePage}>
@@ -71,15 +101,15 @@ const Header = () => {
                 <ul className="navbar-nav ms-auto">
                   <li className="nav-item">
                     {walletConnected && (
-                      <a
+                      <Link
+                        to="/dashboard"
                         className="nav-link btn btn-blue clickable"
-                        onClick={() => handleTradingBot()}
                       >
-                        Connect Wallet
-                      </a>
+                        Dashboard
+                      </Link>
                     )}
                   </li>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     {!walletConnected ? (
                       <button
                         type="button"
@@ -96,7 +126,7 @@ const Header = () => {
                         {labels.mint}
                       </Link>
                     )}
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

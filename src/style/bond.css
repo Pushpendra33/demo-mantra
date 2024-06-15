@@ -1,0 +1,60 @@
+.bond-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  /* background-color: #121212  */
+}
+
+.bond-card {
+  background-color: #333333;
+  color: #ffffff;
+  width: 300px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.bond-header {
+  background-color: #1a1a1a;
+  padding: 10px;
+  text-align: center;
+}
+
+.bond-content {
+  padding: 15px;
+  line-height: 1.5;
+  border-bottom: 1px solid #444; /* subtle line to separate the footer */
+}
+
+.bond-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.bond-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.info {
+  background-color: #4caf50; /* Green for info */
+}
+
+.buy {
+  background-color: #f7c122; /* Yellow for buy */
+}
+
+.info:hover,
+.buy:hover {
+  opacity: 0.8;
+}
+
+.bond-button:focus {
+  outline: none;
+}
