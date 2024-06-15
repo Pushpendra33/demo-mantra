@@ -1,6 +1,7 @@
 export const routesList = {
   homePage: "/",
   mint: "/mint",
+  dashboard: "/dashboard",
   token_registration: "/registration",
   walletOfOwner: "/walletOfOwner",
   tnc: "/terms-of-service",
