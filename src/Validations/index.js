@@ -1,11 +1,7 @@
 import * as yup from "yup";
 import {
   commonFields,
-  indianMobileNumber,
-  maxTenDigits,
-  minTenDigits,
   nameValue,
-  numbersOnly,
   strongPassword,
   validationErrors,
 } from "../Common";
