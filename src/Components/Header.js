@@ -14,11 +14,7 @@ import {
   routesList,
   showNotification,
 } from "../Common";
-import {
-  GlobalForm,
-  GlobalInput as Input,
-  GlobalModal,
-} from "../Global";
+import { GlobalForm, GlobalInput as Input, GlobalModal } from "../Global";
 import { registerSchema } from "../Validations";
 
 const Header = () => {
@@ -100,7 +96,7 @@ const Header = () => {
     <>
       <header>
         <div className="topTeam">
-          {!isStripClosed && (
+          {false && (
             <div className="stripmint">
               You need Metamask to interact with this site.{" "}
               <a
@@ -158,15 +154,15 @@ const Header = () => {
                 <ul className="navbar-nav ms-auto">
                   <li className="nav-item">
                     {walletConnected && (
-                      <a
+                      <Link
+                        to="/dashboard"
                         className="nav-link btn btn-blue clickable"
-                        onClick={() => handleTradingBot("register_modal")}
                       >
-                        Trading Bot
-                      </a>
+                        Dashboard
+                      </Link>
                     )}
                   </li>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     {!walletConnected ? (
                       <button
                         type="button"
@@ -183,7 +179,7 @@ const Header = () => {
                         {labels.mint}
                       </Link>
                     )}
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
