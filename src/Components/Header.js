@@ -1,32 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { labels, routesList } from "../Common";
-import { useChain, useWallet } from "@cosmos-kit/react";
+import { routesList } from "../Common";
 
 const Header = () => {
-  const { connect } = useChain("mantrachaintestnet");
-  const { mainWallet } = useWallet("keplr-extension"); // Access Keplr wallet connection functions
-
-  const [walletConnected, setWalletConnected] = useState(false);
-
-  useEffect(async () => {
-    setWalletConnected(true);
-  }, []);
-
-  const connectWalletPressed = async () => {
-    setWalletConnected(true);
-  };
-
-  const handleTradingBot = () => {
-    try {
-      connect();
-    } catch (error) {
-      console.error("Error connecting Keplr wallet:", error);
-    }
-  };
-
   return (
     <>
       <header>
@@ -70,32 +48,12 @@ const Header = () => {
                 </button>
                 <ul className="navbar-nav ms-auto">
                   <li className="nav-item">
-                    {walletConnected && (
-                      <a
-                        className="nav-link btn btn-blue clickable"
-                        onClick={() => handleTradingBot()}
-                      >
-                        Connect Wallet
-                      </a>
-                    )}
-                  </li>
-                  <li className="nav-item">
-                    {!walletConnected ? (
-                      <button
-                        type="button"
-                        className="nav-link btn btn-purple"
-                        onClick={connectWalletPressed}
-                      >
-                        {labels.connect_wallet}
-                      </button>
-                    ) : (
-                      <Link
-                        className="nav-link btn btn-purple" //onClick={mintNFT}>
-                        to={routesList.mint}
-                      >
-                        {labels.mint}
-                      </Link>
-                    )}
+                    <Link
+                      className="nav-link btn btn-purple clickable" //onClick={mintNFT}>
+                      to={routesList.dashboard}
+                    >
+                      StableBonds
+                    </Link>
                   </li>
                 </ul>
               </div>

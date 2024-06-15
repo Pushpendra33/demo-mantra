@@ -3,10 +3,10 @@ import {
   Banner,
   FAQ,
   Goals,
-  HowItWorks,
+  // HowItWorks,
   RoadMap,
   SneakPeakArtwork,
-  Team,
+  // Team,
 } from "../SubSection";
 
 const HomePage = () => {
@@ -14,11 +14,11 @@ const HomePage = () => {
     <>
       <Banner />
       <Goals />
-      <HowItWorks />
+      {/* <HowItWorks /> */}
       <SneakPeakArtwork />
       <RoadMap />
       <FAQ />
-      <Team />
+      {/* <Team /> */}
     </>
   );
 };
